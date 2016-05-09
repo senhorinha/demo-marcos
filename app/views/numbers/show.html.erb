@@ -1,0 +1,18 @@
+<h1>Number</h1>
+<div id="content" >
+  <span id="number-value"></span>
+</div>
+<button id="refresh-button" type="button" name="button">Refresh Number</button>
+
+<script type="text/javascript">
+  $("#refresh-button").on('click', function(){
+    $.ajax({
+        type: "GET",
+        url: "/refresh",
+        success: function(data){
+          $('#number-value').html(data.value);
+        }
+    });
+    return false;
+  });
+</script>
